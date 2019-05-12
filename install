@@ -1,0 +1,29 @@
+#! /bin/sh
+
+ROOT=
+PROGRAM=usr/local/share/pknc/pknc
+LIBDIR=Library/LaunchAgents
+LABEL=org.ieee.kannan.$(basename $PROGRAM)
+
+templateCopy() {
+    src=$1
+    dst=$2
+
+    m4 -DLABEL=$LABEL -DPROGRAM=$PROGRAM -DROOT=$ROOT -DLIBDIR=$LIBDIR $src > $dst
+    chmod 0755       $dst
+    chown root:wheel $dst
+}
+
+mkdir -p payload/$(dirname $PROGRAM) payload/$LIBDIR Scripts
+
+templateCopy pknc.rb        ./payload/$PROGRAM
+templateCopy pknc.m4        ./payload/$LIBDIR/$LABEL.plist
+templateCopy uninstall.m4   ./payload/$(dirname $ROOT/$PROGRAM)/uninstall
+templateCopy preinstall.m4  ./Scripts/preinstall
+templateCopy postinstall.m4 ./Scripts/postinstall
+
+pkgbuild --identifier $LABEL --root ./payload --scripts ./Scripts pknc.pkg
+
+rm -rf payload Scripts
+exit
+
