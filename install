@@ -18,7 +18,7 @@ mkdir -p payload/$(dirname $PROGRAM) payload/$LIBDIR Scripts
 
 templateCopy pknc.rb        ./payload/$PROGRAM
 templateCopy pknc.m4        ./payload/$LIBDIR/$LABEL.plist
-templateCopy uninstall.m4   ./payload/$(dirname $ROOT/$PROGRAM)/uninstall
+templateCopy uninstall.m4   ./payload/$(dirname $PROGRAM)/uninstall
 templateCopy preinstall.m4  ./Scripts/preinstall
 templateCopy postinstall.m4 ./Scripts/postinstall
 
