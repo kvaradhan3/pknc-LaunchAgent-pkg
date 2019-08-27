@@ -16,7 +16,7 @@ end
 # Process.daemon()
 
 FILE = "/tmp/#{PROGNAME}.%05d" % [rand(99999)]
-$PROGRAM_NAME = "#{PROGNAME}: touch #{FILE} to exit"   
+$PROGRAM_NAME = "#{PROGNAME}: to exit touch #{FILE}"   
 at_exit{ File.unlink(FILE) if File.exist?(FILE) }
 
 File.unlink(FILE) if File.exist?(FILE)
