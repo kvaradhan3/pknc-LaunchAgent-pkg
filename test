@@ -1,0 +1,16 @@
+#! /bin/sh -x
+
+ROOT=
+PROG=$(basename $(pwd))
+PROGRAM=usr/local/share/$PROG/$PROG
+LIBDIR=Library/LaunchAgents
+LABEL=org.ieee.kannan.$PROG
+
+if test -x $(dirname $ROOT/$PROGRAM)/uninstall
+then
+    sudo $(dirname $ROOT/$PROGRAM)/uninstall
+fi
+
+./install -d
+sudo /usr/sbin/installer -pkg ./$PROG.pkg -target /
+exit
