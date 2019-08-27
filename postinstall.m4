@@ -1,4 +1,4 @@
-#! /bin/sh -x
+#! /bin/sh
 
 U=$(/usr/bin/logname)
 if [ $U = _reportmemoryexception ] ; then
