@@ -15,7 +15,7 @@ ifdef(`DEBUG',dnl
         <key>StandardOutPath</key>
         <string>/tmp/PROG.stdout</string>
         <key>StandardErrorPath</key>
-        <string>/tmp/PROG.stderr</string>'
+        <string>/tmp/PROG.stderr</string>
 )dnl
         <key>RunAtLoad</key>
         <true/>

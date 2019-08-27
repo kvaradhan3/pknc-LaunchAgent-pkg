@@ -39,6 +39,5 @@ templateCopy postinstall.m4 ./Scripts/postinstall
 
 pkgbuild --identifier $LABEL --root ./payload --scripts ./Scripts $PROG.pkg
 
-rm -rf payload Scripts
 exit
 
