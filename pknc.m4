@@ -4,15 +4,18 @@
     <dict>
         <key>Label</key>
         <string>LABEL</string>
-        <key>Program</key>
-        <string>ROOT/PROGRAM</string>
-ifdef(`DEBUG',
-`        <key>StandardInPath</key>
-        <string>/tmp/test.stdin</string>
+        <key>ProgramArguments</key>
+        <array>
+            <string>/usr/bin/sudo</string>
+            <string>ROOT/PROGRAM</string>
+        </array>
+ifdef(`DEBUG',dnl
+        <key>StandardInPath</key>
+        <string>/tmp/PROG.stdin</string>
         <key>StandardOutPath</key>
-        <string>/tmp/test.stdout</string>
+        <string>/tmp/PROG.stdout</string>
         <key>StandardErrorPath</key>
-        <string>/tmp/test.stderr</string>'
+        <string>/tmp/PROG.stderr</string>'
 )dnl
         <key>RunAtLoad</key>
         <true/>
